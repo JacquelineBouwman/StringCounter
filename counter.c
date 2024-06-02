@@ -37,7 +37,6 @@ int main()
         inputString[characters - 1] = '\0';
     }
     
-    
     stringCounter(inputString);
 
     return 0;
