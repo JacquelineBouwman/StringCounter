@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
+#include <sys/types.h>
+
 
 void stringCounter(char *inputString)
 {
@@ -20,12 +22,12 @@ void stringCounter(char *inputString)
 
 int main()
 {
-    char * inputString = NULL;
+    char *inputString = NULL;
     size_t len = 0;
 
     printf("Enter a sentence: \n");
     fflush(stdout);
-    
+
     ssize_t characters = getline(&inputString, &len, stdin);
     if (characters == -1)
     {
@@ -33,10 +35,11 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    if (inputString[characters - 1] == '\n'){
+    if (inputString[characters - 1] == '\n')
+    {
         inputString[characters - 1] = '\0';
     }
-    
+
     stringCounter(inputString);
 
     return 0;
